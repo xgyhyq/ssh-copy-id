@@ -1,5 +1,7 @@
 # ssh-copy-id
 自动创建 SSH 密钥对，将公钥复制到远程主机，以便实现无密码登录和安全的远程连接。
+
+
 Automatically generate an SSH key pair, copy the public key to the remote host, enabling password-less login and secure remote connections.
 
 这个脚本主要完成了以下几个任务：
