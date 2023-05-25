@@ -1,27 +1,57 @@
-# ssh-copy-id
-自动创建 SSH 密钥对，将公钥复制到远程主机，以便实现无密码登录和安全的远程连接。
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SSH Key Pair Generation</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            h1, h2 {
+                color: #333;
+            }
+            p {
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Automatically generate an SSH key pair</h1>
+        <p>Automatically generate an SSH key pair, copy the public key to the remote host, enabling password-less login and secure remote connections.</p>
 
+        <h2>Script Tasks:</h2>
+        <ol>
+            <li>Prompt the user to enter a comment for the SSH key, which is used to identify the key.</li>
+            <li>Prompt the user to enter the username, address, or IP and port number of the remote host.</li>
+            <li>Check whether ssh-keygen is installed in the system. If not, automatically install openssh-client.</li>
+            <li>Use ssh-keygen to generate an SSH key pair (public and private keys). The key type is RSA, the key length is 2048 bits, and the comment is the user-entered comment.</li>
+            <li>Copy the generated public key to the remote host, so that no password is required when connecting via SSH in the future.</li>
+            <li>Display the storage path of the local private key.</li>
+        </ol>
 
-Automatically generate an SSH key pair, copy the public key to the remote host, enabling password-less login and secure remote connections.
+        <p>The main purpose of this script is to facilitate users to generate an SSH key pair locally and copy the public key to the remote host to achieve password-less login.</p>
 
-这个脚本主要完成了以下几个任务：
-1. 提示用户输入 SSH 密钥的注释，用于标识密钥。
-2. 提示用户输入远程主机的用户名、地址或 IP 和端口号。
-3. 检查系统中是否已安装 ssh-keygen，如果没有安装，则自动安装 openssh-client。
-4. 使用 ssh-keygen 生成 SSH 密钥对（公钥和私钥），密钥类型为 RSA，密钥长度为 2048 位，注释为用户输入的注释。
-5. 将生成的公钥复制到远程主机，以便在未来通过 SSH 连接时无需输入密码。
-6. 显示本地私钥的存储路径。
-这个脚本的主要目的是为了方便用户在本地生成 SSH 密钥对，并将公钥复制到远程主机，以实现免密码登录。
-建议：当你创建SSH密钥对时，你可以为私钥设置一个passphrase。这将为私钥文件添加一层额外的安全性，即使私钥文件落入他人手中，如果他们不知道passphrase，他们也无法使用它。
-运行脚本后当系统提示你输入文件保存位置时，你可以接受默认位置（通常是~/.ssh/id_rsa）或输入一个新的位置。
-系统将提示你输入passphrase。这时你可以输入一个强密码作为passphrase。为了保证密码强度，你的passphrase应该：
-至少包含12个字符。
-包含大写和小写字母。
-包含数字。
-包含特殊字符，例如!@#$%^&*()。
-系统将再次提示你确认passphrase。再次输入passphrase。
-这样，你的SSH私钥就设置了一个强密码保护。每次使用私钥时，系统都会要求你输入passphrase。
-注意：不要忘记你的passphrase，否则你将无法使用你的私钥。如果你担心忘记，你可以使用一个密码管理器来存储它。
+        <h2>Recommendations and Precautions:</h2>
+        <p>When you create an SSH key pair, you can set a passphrase for the private key. This will add an extra layer of security to the private key file. Even if the private key file falls into the hands of others, they cannot use it if they do not know the passphrase.</p>
+
+        <p>When the system prompts you to enter the file save location after running the script, you can accept the default location (usually ~/.ssh/id_rsa) or enter a new location.</p>
+
+        <p>The system will prompt you to enter a passphrase. At this time, you can enter a strong password as the passphrase. To ensure password strength, your passphrase should:
+            <ul>
+                <li>Contain at least 12 characters.</li>
+                <li>Contain uppercase and lowercase letters.</li>
+                <li>Contain numbers.</li>
+                <li>Contain special characters, such as !@#$%^&*().</li>
+            </ul>
+        </p>
+        
+        <p>The system will prompt you again to confirm the passphrase. Enter the passphrase again.</p>
+
+        <p>In this way, your SSH private key is set with a strong password protection. Each time you use the private key, the system will ask you to enter the passphrase.</p>
+
+        <p><strong>Attention: </strong>Do not forget your passphrase, otherwise you will not be able to use your private key. If you are worried about forgetting, you can use a password manager to store it.</p>
+    </body>
+</html>
+
 
 This script mainly completes the following tasks:
 
